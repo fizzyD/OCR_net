@@ -29,7 +29,8 @@ public class ButtonPixel extends JButton implements MouseListener {
     //These are not used but are necessary for mouseListener
     public void mouseEntered (MouseEvent e)
     {
-       	if ( MouseEvent.BUTTON1 == e.getButton()){
+    	System.out.println("MouseEntered");
+       	if ( SwingUtilities.isLeftMouseButton(e)){
         	if ( this.getBackground() == Color.black){
         		this.setBackground(Color.white);
             	System.out.println("mouseClicked set white");

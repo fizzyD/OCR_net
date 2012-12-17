@@ -134,7 +134,7 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
     JPanel pixelMapPanel;
     GridBagLayout gridBag;
     public OCRnet() {
-    	init();
+    	//init();
     }
     
     public void init(){
@@ -195,6 +195,7 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
 		            e.printStackTrace();
 		 }
 		OCRnet ocrNet = new OCRnet();
+		ocrNet.init();
         // create training set (logical XOR function)
         TrainingSet<SupervisedTrainingElement> trainingSet = new TrainingSet<SupervisedTrainingElement>(64, 1);
         trainingSet.addElement(new SupervisedTrainingElement(four0, new double[]{1}));
