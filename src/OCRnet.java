@@ -19,8 +19,23 @@ import java.awt.GridBagConstraints;
 import javax.swing.*;
 import java.awt.event.*;
 /**
-* This sample shows how to create, train, save and load simple Multi Layer Perceptron
-*/
+ * Scott Dyer
+ * 
+ * Artificial Intelligence Final
+ * 
+ * This program has a small training set of two types of 4s and a few h characters
+ * that train a multilayer perceptron in order to detect a drawn 4.
+ * ButtonPixel class handles the user input and mouse events to map pixel state
+ * to the OCRnet array of doubles that will be the input to the neural net
+ * This code base makes use of neuroph java library 2.6 available from
+ * http://neuroph.sourceforge.net/download.html
+ * The gui consist of an 8x8 pixel map implement by the ButtonPixel, a button "In Set"
+ * that adds a user drawn 4 to the set of positive examples in the training set,
+ * a button Out Set that adds a user drawn character to the negative training set,
+ * and a button test that puts the current drawn character through the neural net
+ * and provides the likelihood that it is a 4. The likelihood is a float that should
+ * be interpreted as a 4 if the value is above 0.5
+ */
 		
 public class OCRnet extends JPanel implements MouseListener, ActionListener{
 	/**
@@ -33,13 +48,13 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
 	String inTrainingDataCmd = "inTrainingData";
 	String outTrainingDataCmd = "outTrainingData";
 	String testCmd = "testCmd";
-	JTextField statusText;
-	double[] pixelMap;
+	JTextField statusText; // tells the user the likelyhood of it being a 4
+	double[] pixelMap; // the "screen" that the character is drawn too 
     // The training set
     TrainingSet<SupervisedTrainingElement> trainingSet;
     // my multi layer perceptron
     MultiLayerPerceptron myMlPerceptron;
-    
+    // Va
     static final double[] four0 = { 
 	0,0,0,0,0,0,0,0,
 	0,0,1,0,0,1,0,0,
@@ -280,7 +295,7 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
 		trainingSet.addElement(new SupervisedTrainingElement(four8, new double[]{1}));
 		trainingSet.addElement(new SupervisedTrainingElement(h0, new double[]{0}));
 		trainingSet.addElement(new SupervisedTrainingElement(h1, new double[]{0}));
-
+		trainingSet.addElement(new SupervisedTrainingElement(h2, new double[]{0}));
     }
 
     public void actionPerformed(ActionEvent e){
@@ -323,7 +338,7 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
 		 }
 		OCRnet ocrNet = new OCRnet();
 		ocrNet.init();
-		if (true){
+		if (false){
 			// create training set
 			TrainingSet<SupervisedTrainingElement> trainingSet = new TrainingSet<SupervisedTrainingElement>(64, 1);
 			trainingSet.addElement(new SupervisedTrainingElement(four0, new double[]{1}));

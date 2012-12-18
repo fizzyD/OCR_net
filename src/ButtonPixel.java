@@ -30,6 +30,7 @@ public class ButtonPixel extends JButton implements MouseListener {
     public void mouseEntered (MouseEvent e)
     {
     	//System.out.println("MouseEntered");
+    	// If the button is pressed and the mouse enters toggle the color and pixel
        	if ( SwingUtilities.isLeftMouseButton(e)){
         	if ( this.getBackground() == Color.black){
         		this.setBackground(Color.white);
@@ -58,6 +59,7 @@ public class ButtonPixel extends JButton implements MouseListener {
     public void mousePressed (MouseEvent e)
     {
     	//this.setBackground(Color.black);
+    	//If the mouse is pressed on this pixel toggle the color and pixel
     	if ( this.getBackground() == Color.black){
     		this.setBackground(Color.white);
     		this.screen[pixely*xmax+pixelx] = 0.0;
