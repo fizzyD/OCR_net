@@ -29,14 +29,14 @@ public class ButtonPixel extends JButton implements MouseListener {
     //These are not used but are necessary for mouseListener
     public void mouseEntered (MouseEvent e)
     {
-    	System.out.println("MouseEntered");
+    	//System.out.println("MouseEntered");
        	if ( SwingUtilities.isLeftMouseButton(e)){
         	if ( this.getBackground() == Color.black){
         		this.setBackground(Color.white);
-            	System.out.println("mouseClicked set white");
+        		//System.out.println("mouseClicked set white");
         	} else {
         		this.setBackground(Color.black);
-            	System.out.println("mouseClicked set black");
+            	//System.out.println("mouseClicked set black");
         	}
        	}
 		//this.setForeground(Color.black);
@@ -44,13 +44,12 @@ public class ButtonPixel extends JButton implements MouseListener {
      }
 
     public void mouseClicked(MouseEvent e){
-    	
-    	System.out.println("HI BUTTON1 mouseClicked");
+    	//System.out.println("HI BUTTON1 mouseClicked");
     }
 
     public void mouseExited (MouseEvent e)
     {
-		System.out.println("buttonpixel bye mouse");
+		//System.out.println("buttonpixel bye mouse");
     }
     
 
@@ -59,12 +58,12 @@ public class ButtonPixel extends JButton implements MouseListener {
     	//this.setBackground(Color.black);
     	if ( this.getBackground() == Color.black){
     		this.setBackground(Color.white);
-        	System.out.println("mouseClicked set white");
+        	//System.out.println("mouseClicked set white");
     	} else {
     		this.setBackground(Color.black);
-        	System.out.println("mouseClicked set black");
+        	//System.out.println("mouseClicked set black");
     	}
-    	System.out.println("mousePress set black");
+    	//System.out.println("mousePress set black");
     }
     
 
