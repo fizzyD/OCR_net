@@ -42,32 +42,32 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
     
     static final double[] four0 = { 
 	0,0,0,0,0,0,0,0,
-	0,1,0,0,0,1,0,0,
-	0,1,0,0,0,1,0,0,
-	0,1,1,1,1,1,0,0,
-	0,0,0,0,0,1,0,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,1,1,1,0,0,
 	0,0,0,0,0,1,0,0,
 	0,0,0,0,0,1,0,0,
 	0,0,0,0,0,0,0,0};
     
     static final double[] four1 = { 
 	0,0,0,0,0,0,0,0,
-	0,0,1,0,0,0,1,0,
-	0,0,1,0,0,0,1,0,
-	0,0,1,1,1,1,1,0,
-	0,0,0,0,0,0,1,0,
-	0,0,0,0,0,0,1,0,
-	0,0,0,0,0,0,1,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,1,1,1,0,0,
+	0,0,0,0,0,1,0,0,
+	0,0,0,0,0,1,0,0,
+	0,0,0,0,0,1,0,0,
 	0,0,0,0,0,0,0,0};
     
     static final double[] four2 = { 
 	0,0,0,0,0,0,0,0,
-	0,0,0,1,0,0,0,1,
-	0,0,0,1,0,0,0,1,
-	0,0,0,1,1,1,1,1,
-	0,0,0,0,0,0,0,1,
-	0,0,0,0,0,0,0,1,
-	0,0,0,0,0,0,0,1,
+	0,0,1,0,0,1,0,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,1,1,1,1,0,
+	0,0,0,0,0,1,0,0,
+	0,0,0,0,0,1,0,0,
+	0,0,0,0,0,1,0,0,
 	0,0,0,0,0,0,0,0};
     
     static final double[] four3 = { 
@@ -147,6 +147,15 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
 	0,1,1,1,1,0,0,0,
 	0,1,0,0,1,0,0,0,
 	0,1,0,0,1,0,0,0,
+	0,0,0,0,0,0,0,0 };
+    static final double[] h2 = {
+	0,0,0,0,0,0,0,0,
+	0,0,1,0,0,0,0,0,
+	0,0,1,0,0,0,0,0,
+	0,0,1,1,1,1,0,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,0,0,1,0,0,
+	0,0,1,0,0,1,0,0,
 	0,0,0,0,0,0,0,0 };
     JFrame guiFrame;
     JPanel pixelMapPanel;
@@ -325,11 +334,14 @@ public class OCRnet extends JPanel implements MouseListener, ActionListener{
 			trainingSet.addElement(new SupervisedTrainingElement(four5, new double[]{1}));
 			trainingSet.addElement(new SupervisedTrainingElement(h0, new double[]{0}));
 			trainingSet.addElement(new SupervisedTrainingElement(h1, new double[]{0}));
+			trainingSet.addElement(new SupervisedTrainingElement(h2, new double[]{0}));
 			TrainingSet<SupervisedTrainingElement> testSet = new TrainingSet<SupervisedTrainingElement>(64,1);
 			testSet.addElement(new SupervisedTrainingElement(four5, new double[]{1}));
 			testSet.addElement(new SupervisedTrainingElement(four6, new double[]{1}));
 			testSet.addElement(new SupervisedTrainingElement(four7, new double[]{1}));
+			testSet.addElement(new SupervisedTrainingElement(h0, new double[]{0}));
 			testSet.addElement(new SupervisedTrainingElement(h1, new double[]{0}));
+			testSet.addElement(new SupervisedTrainingElement(h2, new double[]{0}));
 
 			// create multi layer perceptron
 			MultiLayerPerceptron myMlPerceptron = new MultiLayerPerceptron(TransferFunctionType.TANH, 64, 8, 1);

@@ -33,9 +33,11 @@ public class ButtonPixel extends JButton implements MouseListener {
        	if ( SwingUtilities.isLeftMouseButton(e)){
         	if ( this.getBackground() == Color.black){
         		this.setBackground(Color.white);
+        		this.screen[pixely*xmax+pixelx] = 0.0;
         		//System.out.println("mouseClicked set white");
         	} else {
         		this.setBackground(Color.black);
+        		this.screen[pixely*xmax+pixelx] = 1.0;
             	//System.out.println("mouseClicked set black");
         	}
        	}
@@ -58,10 +60,12 @@ public class ButtonPixel extends JButton implements MouseListener {
     	//this.setBackground(Color.black);
     	if ( this.getBackground() == Color.black){
     		this.setBackground(Color.white);
+    		this.screen[pixely*xmax+pixelx] = 0.0;
         	//System.out.println("mouseClicked set white");
     	} else {
     		this.setBackground(Color.black);
         	//System.out.println("mouseClicked set black");
+    		this.screen[pixely*xmax+pixelx] = 1.0;
     	}
     	//System.out.println("mousePress set black");
     }
